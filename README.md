@@ -31,5 +31,3 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 - Those questions should probably be their own Swift struct, `Question`, storing the text and the answer.
 - When it comes to asking questions, use another state property called `currentQuestion`, which is an integer pointing at some position in your question array.
 - You can get user input either using buttons on the screen, like a calculator, or using a number pad text field – whichever you prefer.
-
-At its simplest, this is not a hard app to build. Get that core right – get the fundamental logic of what you’re trying to do – then think about how to bring it to life. Yes, I know that part is the fun part, but ultimately this app needs to be useful, and it’s better to get the core working than try for everything at once and find you get bored part-way through.
