@@ -9,7 +9,7 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 - [ ] You should randomly generate as many questions as they asked for, within the difficulty range they asked for. 
 - [ ] For the “all” case you should generate all possible combinations.
 
-![Reference image](https://ibb.co/8rfG8KX)
+![Reference image](https://i.ibb.co/5rSCcM2/Screen-Shot-2020-12-25-at-18-01-26.png)
 
 ## Basic UI
 - [ ] If you want to go fully down the “education” route then this is going to be some steppers, a text field and a couple of buttons. I would suggest that’s a good place to start, just to make sure you have the basics covered.
