@@ -6,7 +6,7 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 ## Requirements
 - [x] The player needs to select **which multiplication** tables they want to practice*. This could be pressing `buttons`, or it could be an “Up to…” `stepper`, going from 1 to 12.
 - [x] The player should be able to select **how many questions** they want to be asked: 5, 10, 20, or “All”.
-- [ ] You should randomly generate as many questions as they asked for, within the difficulty range they asked for. 
+- [x] You should randomly generate as many questions as they asked for, within the difficulty range they asked for. 
 - [ ] For the “all” case you should generate all possible combinations.
 
 ![Reference image](https://i.ibb.co/5rSCcM2/Screen-Shot-2020-12-25-at-18-01-26.png)
