@@ -25,8 +25,8 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 ## Tips
 - [x] Start with a Single View App template, then add some state to determine whether the game is active or whether you’re asking for settings.
 - [x] Because the app has two very different states – “we’re asking the user for settings” and “the game is running” – you should use a `Group` as your top-level view, so that `some View` always gets the same view type being sent back.
-- [ ] Try and break up your layouts into new SwiftUI views, rather than putting everything in `ContentView`.
-- [ ] Show the player how many questions they got correct at the end of the game, then offer to let them play again.
+- [x] Try and break up your layouts into new SwiftUI views, rather than putting everything in `ContentView`.
+- [x] Show the player how many questions they got correct at the end of the game, then offer to let them play again.
 
 ## Hints
 - [x] You should generate all your questions soon as your game starts, storing them as an array of questions.
