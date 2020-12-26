@@ -29,7 +29,7 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 - [ ] Show the player how many questions they got correct at the end of the game, then offer to let them play again.
 
 ## Hints
-- [ ] You should generate all your questions soon as your game starts, storing them as an array of questions.
+- [x] You should generate all your questions soon as your game starts, storing them as an array of questions.
 - [ ] Those questions should probably be their own Swift struct, `Question`, storing the text and the answer.
-- [ ] When it comes to asking questions, use another state property called `currentQuestion`, which is an integer pointing at some position in your question array.
-- [ ] You can get user input either using buttons on the screen, like a calculator, or using a number pad text field – whichever you prefer.
+- [x] When it comes to asking questions, use another state property called `currentQuestion`, which is an integer pointing at some position in your question array.
+- [x] You can get user input either using buttons on the screen, like a calculator, or using a number pad text field – whichever you prefer.
