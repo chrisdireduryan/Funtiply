@@ -30,50 +30,79 @@ struct ContentView: View {
             questionSet.append(Int.random(in: 1...99))
         }
         nextQuestion = questionSet[0]
-//        print(questionSet)
+    }
+    
+    func gameOver() {
+        showingAlert = true
+        alertTitle = "Game Over"
+        alertMessage = "Your score: xx"
+        showSettings.toggle()
+    }
+    
+    func quitGame() {
+        showingAlert = true
+        alertTitle = "Leave Game"
+        alertMessage = "You still have some moves"
+        showSettings.toggle()
+    }
+    
+    func checkAnswer() {
+        if Int(guess) == (multiplicationTable * nextQuestion) {
+            alertTitle = "Correct"
+            alertMessage = "Great job"
+        } else {
+            alertTitle = "Wrong"
+            alertMessage = "Next time bro"
+        }
+        guess = ""
+        showingAlert = true
+        increment += 1
+        if increment < questionSet.count {
+            nextQuestion = questionSet[increment]
+        } else {
+            gameOver()
+        }
     }
     
     var body: some View {
-        VStack {
+        NavigationView {
             if showSettings {
-                Text("Funtiply")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Divider()
-                Text("Please choose the times table and number of questions")
-
-                Stepper("\(multiplicationTable) times table", value: $multiplicationTable, in: 1...12)
-                Stepper("\(questions[numberOfQuestions]) questions", value: $numberOfQuestions, in: 0...4)
-                Button(action: {
-                    showSettings.toggle()
-                    startGame()
-                }, label: {
-                    Text("Start Game")
-                })
-                .foregroundColor(.white)
-                .frame(width: 160, height: 60)
-                .background(Color.blue)
-                .cornerRadius(8.0)
-            } else {
-                Text("What is \(multiplicationTable) times \(nextQuestion)")
-                TextField("Your answer", text: $guess)
-                Spacer()
-                Button("Answer") {
-                    if Int(guess) == (multiplicationTable * nextQuestion) {
-                        alertTitle = "Correct"
-                        alertMessage = "Great job"
-                    } else {
-                        alertTitle = "Wrong"
-                        alertMessage = "Next time bro"
-                    }
-                    showingAlert.toggle()
-                    increment += 1
-                    nextQuestion = questionSet[increment]
+                VStack {
+                    Spacer()
+                    Stepper("\(multiplicationTable) times table", value: $multiplicationTable, in: 1...12)
+                    Stepper("\(questions[numberOfQuestions]) questions", value: $numberOfQuestions, in: 0...4)
+                    Spacer()
+                    Button(action: {
+                        showSettings.toggle()
+                        startGame()
+                    }, label: {
+                        Text("Start Game")
+                    })
+                    .foregroundColor(.white)
+                    .frame(width: 160, height: 60)
+                    .background(Color.blue)
+                    .cornerRadius(8.0)
+                    Spacer()
                 }
-                .foregroundColor(.white)
-                .frame(width: 160, height: 60)
-                .background(Color.blue)
-                .cornerRadius(8.0)
+                .padding()
+                .navigationBarTitle(Text("Welcome to Funtiply"))
+            } else {
+                VStack {
+                    TextField("Your answer", text: $guess, onCommit: checkAnswer)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.black)
+                        .keyboardType(.decimalPad)
+                    Spacer()
+                }
+                .navigationBarTitle(Text("\(multiplicationTable) x \(nextQuestion) ?"))
+                .navigationBarItems(
+                    trailing: Button(action: { quitGame() }, label: {
+                        HStack {
+                            Text("Quit")
+                            Image(systemName: "xmark.circle")
+                        }})
+                )
             }
             Spacer()
         }
