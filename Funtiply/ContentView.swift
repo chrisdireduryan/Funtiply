@@ -94,12 +94,7 @@ struct ContentView: View {
                 .navigationBarTitle(Text("Welcome to Funtiply"))
             } else {
                 VStack(alignment: .leading) {
-                    TextField("Your answer", text: $guess, onCommit: checkAnswer)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.black)
-                        .keyboardType(.decimalPad)
-                        .font(.title)
+                    AnswerField(text: $guess, onCommit: checkAnswer)
                     Text("\(questionIncrement + 1)\\\(allQuestions.count)")
                         .padding(.leading)
 
