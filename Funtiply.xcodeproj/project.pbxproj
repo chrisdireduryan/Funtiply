@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7978B13225977A1600B73536 /* AnswerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7978B13125977A1600B73536 /* AnswerField.swift */; };
+		7993C19D25977FA5000CD05D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7993C19C25977FA5000CD05D /* Question.swift */; };
 		79B535C72596076B009E6DF6 /* FuntiplyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B535C62596076B009E6DF6 /* FuntiplyApp.swift */; };
 		79B535C92596076B009E6DF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B535C82596076B009E6DF6 /* ContentView.swift */; };
 		79B535CB2596076B009E6DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B535CA2596076B009E6DF6 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		7978B13125977A1600B73536 /* AnswerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerField.swift; sourceTree = "<group>"; };
+		7993C19C25977FA5000CD05D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		79B535C32596076B009E6DF6 /* Funtiply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Funtiply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B535C62596076B009E6DF6 /* FuntiplyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuntiplyApp.swift; sourceTree = "<group>"; };
 		79B535C82596076B009E6DF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				79B535CF2596076B009E6DF6 /* Info.plist */,
 				79B535CC2596076B009E6DF6 /* Preview Content */,
 				7978B13125977A1600B73536 /* AnswerField.swift */,
+				7993C19C25977FA5000CD05D /* Question.swift */,
 			);
 			path = Funtiply;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7978B13225977A1600B73536 /* AnswerField.swift in Sources */,
+				7993C19D25977FA5000CD05D /* Question.swift in Sources */,
 				79B535C92596076B009E6DF6 /* ContentView.swift in Sources */,
 				79B535C72596076B009E6DF6 /* FuntiplyApp.swift in Sources */,
 			);
