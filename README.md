@@ -12,7 +12,7 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 ![Reference image](https://i.ibb.co/5rSCcM2/Screen-Shot-2020-12-25-at-18-01-26.png)
 
 ## Basic UI
-- [ ] If you want to go fully down the “education” route then this is going to be some steppers, a text field and a couple of buttons. I would suggest that’s a good place to start, just to make sure you have the basics covered.
+- [x] If you want to go fully down the “education” route then this is going to be some steppers, a text field and a couple of buttons. I would suggest that’s a good place to start, just to make sure you have the basics covered.
 
 ## Enhancements
 - [ ] You could throw away fixed controls like Stepper entirely if you wanted, and instead rely on colorful buttons to get the same result. 
