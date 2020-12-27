@@ -1,5 +1,7 @@
 # Funtiply 📚
 
+![Current settings screen](https://i.ibb.co/PWpRxNG/Simulator-Screen-Shot-i-Pod-touch-7th-generation-2020-12-27-at-12-41-20.png)
+
 ## Brief
 Build an “edutainment” app for kids to help them practice multiplication tables – “what is 7 x 8?” and so on. Edutainment apps are educational at their code, but ideally have enough playfulness about them to make kids want to play.
 
