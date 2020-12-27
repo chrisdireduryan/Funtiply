@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-var questionCount = [5, 10, 15, 20, 144]
-var currentQuestionIndex = 0
-var allQuestions = [Int]()
+var questionCount = [5, 10, 15, 20, 99]
+var questions = [Question]()
+var currentQuestion = questions[0]
 var questionIncrement = 0
 var score = 0
 
@@ -27,10 +27,11 @@ struct ContentView: View {
     func startGame() {
         let questionNumber = questionCount[numberOfQuestionsIndex]
         
-        for _ in (0..<questionNumber) {
-            allQuestions.append(Int.random(in: 1...99))
+        for number in (0..<questionNumber) {
+            questions.append(Question(question: "What is \(multiplicationTable) times \(number)", answer: multiplicationTable * number))
         }
-        currentQuestionIndex = allQuestions[0]
+        questions.shuffle()
+        print(questions)
     }
     
     func gameOver() {
@@ -38,6 +39,8 @@ struct ContentView: View {
         alertTitle = "Game Over"
         alertMessage = "Your score: xx"
         showSettings.toggle()
+        questionIncrement = 0
+
     }
     
     func quitGame() {
@@ -45,10 +48,12 @@ struct ContentView: View {
         alertTitle = "Leave Game"
         alertMessage = "You still have some moves"
         showSettings.toggle()
+        questionIncrement = 0
+
     }
     
     func checkAnswer() {
-        if Int(guess) == (multiplicationTable * currentQuestionIndex) {
+        if Int(guess) == (questions[questionIncrement].answer) {
             alertTitle = "Correct"
             alertMessage = "Great job"
         } else {
@@ -59,8 +64,9 @@ struct ContentView: View {
         score += 1
         showingAlert = true
         questionIncrement += 1
-        if questionIncrement < allQuestions.count {
-            currentQuestionIndex = allQuestions[questionIncrement]
+
+        if questionIncrement < questions.count {
+            currentQuestion = questions[questionIncrement]
         } else {
             gameOver()
         }
@@ -95,12 +101,12 @@ struct ContentView: View {
             } else {
                 VStack(alignment: .leading) {
                     AnswerField(text: $guess, onCommit: checkAnswer)
-                    Text("\(questionIncrement + 1)\\\(allQuestions.count)")
+                    Text("\(questions[questionIncrement].question)")
                         .padding(.leading)
 
                     Spacer()
                 }
-                .navigationBarTitle(Text("\(multiplicationTable) x \(currentQuestionIndex) ?"))
+                .navigationBarTitle(Text("\(currentQuestion.question)"))
                 .navigationBarItems(
                     trailing: Button(action: { quitGame() }, label: {
                         HStack {
