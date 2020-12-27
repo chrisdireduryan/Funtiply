@@ -14,10 +14,7 @@ struct AnswerField: View {
     
     var body: some View {
         TextField("Your answer", text: $text, onCommit: onCommit)
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.black)
-            .keyboardType(.decimalPad)
             .font(.title)
+            .background(Color(red: 74 / 255, green: 21 / 255, blue: 25 / 255))
     }
 }
