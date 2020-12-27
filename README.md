@@ -15,7 +15,7 @@ Build an “edutainment” app for kids to help them practice multiplication tab
 - [x] If you want to go fully down the “education” route then this is going to be some steppers, a text field and a couple of buttons. I would suggest that’s a good place to start, just to make sure you have the basics covered.
 
 ## Visual Enhancements
-- [ ] You could throw away fixed controls like Stepper entirely if you wanted, and instead rely on colorful buttons to get the same result. 
+- [x] You could throw away fixed controls like Stepper entirely if you wanted, and instead rely on colorful buttons to get the same result. 
 - [ ] You could use something like [Kenney’s Animal Pack](https://kenney.nl/assets/animal-pack-redux) (which is public domain, by the way!) to add a fun theme to make it into a real game. 
 - [ ] You will also add some over the top animations
 
