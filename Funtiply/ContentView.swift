@@ -73,52 +73,93 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView {
-            if showSettings {
-                VStack {
-                    Spacer()
-                    Stepper("\(multiplicationTable) times table", value: $multiplicationTable, in: 1...12)
-                    Stepper("\(questionCount[numberOfQuestionsIndex]) questions", value: $numberOfQuestionsIndex, in: 0...4)
-                    Spacer()
-                    Button(action: {
-                        showSettings.toggle()
-                        startGame()
-                    }, label: {
-                        Text("Start Game")
-                    })
-                    .foregroundColor(.white)
-                    .frame(width: 160, height: 60)
-                    .background(Color.blue)
-                    .cornerRadius(8.0)
-                    if score > 0 {
-                        Text("Your score: \(score)")
-                            .padding()
-                    }
-                    Spacer()
-                }
-                .padding()
-                .navigationBarTitle(Text("Welcome to Funtiply"))
-            } else {
-                VStack(alignment: .leading) {
-                    AnswerField(text: $guess, onCommit: checkAnswer)
-                    Text("\(questions[questionIncrement].question)")
-                        .padding(.leading)
+        ZStack {
+            Color(red: 246 / 255, green: 239 / 255, blue: 232 / 255)
+                .ignoresSafeArea()
 
-                    Spacer()
+            VStack {
+                if showSettings {
+                    VStack {
+                        Text("Welcome to Funtiply")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
+                        VStack {
+                            Text("Choose times table and \n start the game")
+                                .multilineTextAlignment(.center)
+                            HStack {
+                                ForEach (1..<5) { number in
+                                    Button("\(number)") {
+                                        multiplicationTable = number
+                                        showSettings.toggle()
+                                        startGame()
+                                    }
+                                    .foregroundColor(.white)
+                                    .frame(width: 56, height: 56)
+                                    .background(Color(red: 74 / 255, green: 21 / 255, blue: 25 / 255))
+                                    .cornerRadius(28.0)
+                                }
+                            }
+                            .padding()
+                            HStack {
+                                ForEach (5..<9) { number in
+                                    Button("\(number)") {
+                                        multiplicationTable = number
+                                        showSettings.toggle()
+                                        startGame()
+                                    }
+                                    .foregroundColor(.white)
+                                    .frame(width: 56, height: 56)
+                                    .background(Color(red: 74 / 255, green: 21 / 255, blue: 25 / 255))
+                                    .cornerRadius(28.0)
+
+                                }
+                            }
+                            .padding()
+                            HStack {
+                                ForEach (9..<13) { number in
+                                    Button("\(number)") {
+                                        multiplicationTable = number
+                                        showSettings.toggle()
+                                        startGame()
+                                    }
+                                    .foregroundColor(.white)
+                                    .frame(width: 56, height: 56)
+                                    .background(Color(red: 74 / 255, green: 21 / 255, blue: 25 / 255))
+                                    .cornerRadius(28.0)
+                                }
+                            }
+                            .padding()
+                        }
+                        Spacer()
+                        Stepper("\(questionCount[numberOfQuestionsIndex]) questions", value: $numberOfQuestionsIndex, in: 0...4)
+
+                        if score > 0 {
+                            Text("Your last score: \(score)")
+                                .padding()
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                    .foregroundColor(Color(red: 74 / 255, green: 21 / 255, blue: 25 / 255))
+                } else {
+                    VStack(alignment: .leading) {
+                        AnswerField(text: $guess, onCommit: checkAnswer)
+                        Text("\(questionIncrement + 1)\\\(questions.count) - \(currentQuestion.question)")                        
+                        Button(action: { quitGame() }, label: {
+                            HStack {
+                                Text("Quit")
+                                Image(systemName: "xmark.circle")
+                            }})
+
+                    }
+
                 }
-                .navigationBarTitle(Text("\(currentQuestion.question)"))
-                .navigationBarItems(
-                    trailing: Button(action: { quitGame() }, label: {
-                        HStack {
-                            Text("Quit")
-                            Image(systemName: "xmark.circle")
-                        }})
-                )
             }
-            Spacer()
+
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("Ok")))
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("Ok")))
         }
     }
 }
